@@ -77,8 +77,8 @@ def recommend_sub(request):
     for i in range(len(usedTimeRec_result)):
         profileRec_result.append(usedTimeRec_result[i])
     combine_list=profileRec_result
-    set(combine_list)
-    list(combine_list)
+    combine_list=set(combine_list)
+    combine_list=list(combine_list)
     RecommendSub.objects.update_or_create(username=user_using_id, name=combine_list)
     return render(request, 'recommend_sub.html', {
         'recData':combine_list
