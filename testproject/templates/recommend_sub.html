@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>모든 구독을 하나로</title>
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <div class="container">
+            <h1 style="text-align: center;">Recommend</h1>
+            <div class="col" >
+                <div class="col-12" style="height: 300px; overflow-y: scroll; ">
+                    <ul class="list-group" style="align-items: center;">
+                        {%for recServiece in recData %}
+                            <li class="list-group-item">{{recServiece}}</li><br>
+                        {% endfor %}
+                </div>
+            </div>
+        </ul>
+    </body>
+    
+    
+</html>

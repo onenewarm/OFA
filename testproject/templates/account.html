@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for account in accounts %}
+<div name="bank" id="bank">은행: {{ account.bank }}</div>
+<div>계좌번호: {{ account.account_num }}</div>
+<div>계좌잔고: {{ account.account_money }}</div>
+{% endfor %}
+<form action="{% url 'testproject:register_account' %}" method="get">
+    <input type="button" value="계좌추가">
+</form>
+{% endblock %}

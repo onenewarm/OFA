@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block login %}
+{% if request.user.is_authenticated %}
+<div>안녕하세요. {{ request.user.username }}님</div>
+<button>
+    <a href="/testproject/logout">로그아웃</a>
+</button>
+{% if not request.user.token %}
+<div>서비스를 이용하기 위해 인증이 필요합니다!</div>
+<form method="get" action="https://testapi.openbanking.or.kr/oauth/2.0/authorize" target="_blank">
+    <input type="hidden" name="response_type" value="code"/>
+    <input type="hidden" name="client_id" value="95c66bc3-af0c-45b6-8454-6b26bb60c968"/>
+    <input type="hidden" name="redirect_uri" value="http://127.0.0.1:8000/testproject/user/auth"/>
+    <input type="hidden" name="scope" value="login inquiry transfer"/>
+    <input type="hidden" name="state" value="b80BLsfigm9OokPTjy03elbJqRHOfGSY"/>
+    <input type="hidden" name="auth_type" value="0"/>
+    <input type="submit" value="인증하기"/>
+</form>
+{% endif %}
+{% else %}
+<div>로그인하세요</div>
+<form>
+    <a href="/testproject/login">
+        <button type="button" class="btn btn-outline-primary">로그인</button>
+    </a>
+    <a href="/testproject/signup">
+        <button type="button" class="btn btn-outline-primary">회원가입</button>
+    </a>
+</form>
+{% endif %}
+{% endblock %}
