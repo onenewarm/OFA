@@ -64,6 +64,7 @@ requests==2.26.0
 scikit-learn==1.0.1
 scipy==1.7.3
 seaborn==0.11.2
+secondproject==0.0.1
 Send2Trash==1.8.0
 setuptools-scm==6.3.2
 six==1.16.0
